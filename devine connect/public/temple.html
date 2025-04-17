@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Registration</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+         body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+
+        background-color: rgba(181, 221, 186, 0);
+      }
+
+      nav {
+        height: 0 px;
+        background-color: #006769;
+        display: grid;
+        grid-template-columns: auto auto;
+        height: 68px;
+        z-index: 1010;
+
+        padding-inline: 20px;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+      }
+      
+      nav a {
+        text-decoration: none;
+        color: #fffae6f1;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 15px;
+        transition: 0.7s ease;
+        padding: 5px;
+        padding-inline: 10px;
+        border-radius: 15px;
+        box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+
+        /* color: white; */
+      }
+      a:hover {
+        text-decoration: none;
+        color: rgb(153, 153, 226);
+        font-size: 1.3;
+      }
+      .nav-menu {
+        width: 100%;
+      }
+      .hamburger {
+        display: none;
+        cursor: pointer;
+      }
+      nav span {
+        padding: 10px;
+      }
+      .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background-color: black;
+      }
+        body {
+    font-family: Arial, sans-serif;
+    
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+.leftSection {
+        width: 45%;
+      }
+form {
+    max-width: 100%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+input[type="file"] {
+    margin-top: 5px;
+}
+
+button[type="submit"],
+button[type="button"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+#autoDetectLocation {
+    display: block;
+    margin-top: 10px;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
+.first {
+        display: flex;
+        justify-content: space-around;
+        margin: 40px 0;
+        
+        padding-inline: 90px;
+      }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="left">
+          <a href="http://localhost:3000/">
+            <span><i class="fa-solid fa-hands-praying" height="50px"></i> <b>Devine connect</b></span></i></a>
+          
+          
+          <span></span>
+          <span></span>
+        </div>
+        <div class="right">
+          <span><a href="login.html" id="login-logout">Login</a></span>
+  
+         
+         
+          <a href="profile.html"><span id="user-container"></span></a>
+        </div>
+      </nav>
+      <section class="first">
+        <div class="leftSection i">
+    <h1>Temple Registration</h1>
+    <form id="registrationForm" enctype="multipart/form-data">
+        <label for="name">Name of the Temple:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+        
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" required>
+        
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" required>
+
+        <button type="button" id="autoDetectLocation">Auto-Detect Location</button>
+        
+        <label for="image">Images:</label>
+        <input type="file" id="image" name="image" multiple required>
+        
+        <label for="about">About the Temple:</label>
+        <textarea id="about" name="about" required></textarea>
+        
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Register</button>
+    </form>
+    </div>
+    <div class="rightSection" >
+    <img src="./media/Image.png" alt=""  style="padding: 20%;padding-bottom: 0;"/>
+    <h1><b>Book online pooja services for your spiritual needs</b></h1>
+   
+  </div>
+
+</section>
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+
+            fetch('/temples/register', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Temple registration failed');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                alert('Temple registered successfully!');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert(error.message || 'An error occurred. Please try again.');
+            });
+        });
+
+        // Auto-detect location button functionality
+        document.getElementById("autoDetectLocation").addEventListener("click", function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    document.getElementById("latitude").value = latitude;
+                    document.getElementById("longitude").value = longitude;
+                }, function(error) {
+                    console.error("Error getting location:", error);
+                    alert("Error getting current location. Please enter coordinates manually.");
+                });
+            } else {
+                console.error("Geolocation is not supported by this browser.");
+                alert("Geolocation is not supported by this browser. Please enter coordinates manually.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+
+        background-color: rgba(181, 221, 186, 0);
+      }
+
+      nav {
+        height: 0 px;
+        background-color: #006769;
+        display: grid;
+        grid-template-columns: auto auto;
+        height: 68px;
+        z-index: 1010;
+
+        padding-inline: 20px;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #fffae6f1;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 15px;
+        transition: 0.7s ease;
+        padding-inline: 10px;
+        border-radius: 15px;
+        box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+
+        /* color: white; */
+      }
+      a:hover {
+        text-decoration: none;
+        color: rgb(153, 153, 226);
+        font-size: 1.3;
+      }
+      .nav-menu {
+        width: 100%;
+      }
+      .hamburger {
+        display: none;
+        cursor: pointer;
+      }
+      nav span {
+        padding: 10px;
+      }
+      .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        background-color: black;
+      }
+      .first {
+        display: flex;
+        justify-content: space-around;
+        margin: 40px 0;
+        align-items: center;
+        padding-inline: 90px;
+      }
+      .first h1 {
+        font-size: xxx-large;
+      }
+      .leftSection {
+        width: 600px;
+      }
+      .cards {
+        height: 110px;
+        width: 110px;
+        padding: 10px;
+        border: 2px solid black;
+      }
+      .secand a {
+        height: 130px;
+        border-radius: 5px;
+        padding: 0;
+        text-decoration: none;
+        color: #333333;
+        background-color: #e1f2cd;
+        box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+      }
+      .secand p {
+        text-align: center;
+        padding-top: 9px;
+        margin: 0;
+      }
+      .secand {
+        display: flex;
+        height: 300px;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 10%;
+      }
+      .secand div {
+        background-color: #e1f2cd;
+      }
+      footer {
+        background-color: #e1f2cd;
+        height: 400px;
+        padding-inline: 8%;
+        padding-top: 10px;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .footer {
+        padding-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .footerdiv {
+        width: 302px;
+        height: 300px;
+        box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+        background-color: #fff;
+        border-radius: 15px;
+      }
+      input {
+        border-radius: 3px;
+        border: 1px solid rgba(0, 0, 0, 0.774);
+        box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+        padding: 3px;
+        width: 35%;
+      }
+      button {
+        background-color: #696600e7;
+        border-radius: 4px;
+        padding: 3px;
+      }
+      .templediv {
+        display: grid;
+        grid-template-columns: 30% 30% 30% ;
+        padding: 10PX;
+
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 10%;
+      }
+      .tempesp {
+        padding: 15px;
+        text-align: center;
+        padding-top: 9px;
+        margin: 0;
+        
+        box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+        border-radius: 10px;
+        background-color: #e1f2cd;
+        margin-bottom: 15px;
+      }
+      .map {
+        width: 100%;
+        height: 400px;
+        margin-top: 100px;
+        padding: 20PX;
+      }
+      .temple-image {
+         width: 100px; 
+         height: 100px; 
+         margin: 5px; 
+    
+      }
+      .eventDescription{
+       height: 90px; 
+       
+       overflow:hidden;
+      }
+      #templeImageslo{
+        width: 300px;
+        border-radius: 50% ;
+        overflow: hidden;
+        
+      }
+      #templeImageslo img{
+        width: 105%;
+        height: 105%;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="left">
+        <a href="http://localhost:3000/">
+          <span><i class="fa-solid fa-hands-praying" height="50px"></i> <b>Devine connect</b></span></i></a>
+        
+        
+        <span></span>
+        <span></span>
+      </div>
+      <div class="right">
+        <span><a href="#"id="available-bookings">Events</a></span>
+        <span><a href="#" id="login-logout" >Login</a></span>
+       
+       
+        <a href="profile.html"><span id="user-container"></span></a>
+      </div>
+    </nav>
+    <section class="first">
+      <div class="leftSection i">
+        <h1 id="templeName"></h1>
+        <p id="address">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, nemo. Lorem ipsum dolor sit amet.</p>
+        <p id="about"></p>
+        <p id="templeLocation" style="display: none;"></p>
+      </div>
+      <div class="rightSection">
+        <div id="templeImageslo"></div>
+       
+        
+      </div>
+    </section>
+   <h2 style="text-align: center;">Events</h2>
+   <div id="bookingsList"></div >
+   <div id="map" style="height: 400px; width: 100%;"></div>
+   <footer>
+    <h2 style="text-align: center">Explore Temples news</h2>
+    <div class="footer">
+      <div class="footerdiv">
+        <img src="./media/Image (3).png" height="120" alt="" />
+        <div style="padding-inline: 20px">
+          <h3>5 tips for Temple Donations</h3>
+          <p>
+            Lorem ipsum dolor sit. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Assumenda, minus aspernatur? Cumque.
+          </p>
+          <span><img src="./media/Image (10).png" alt="" height="25" /></span>
+          <span>Dr.Temple</span>
+        </div>
+      </div>
+      <div class="footerdiv">
+        <img src="./media/Image (11).png" height="120" alt="" />
+        <div style="padding-inline: 20px">
+          <h3>5 tips for Temple Donations</h3>
+          <p>
+            Lorem ipsum dolor sit. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Assumenda, minus aspernatur? Cumque.
+          </p>
+          <span><img src="./media/Image (10).png" alt="" height="25" /></span>
+          <span>Dr.Temple</span>
+        </div>
+      </div>
+      <div class="footerdiv">
+        <img src="./media/Image (12).png" height="120" alt="" />
+        <div style="padding-inline: 20px">
+          <h3>5 tips for Temple Donations</h3>
+          <p>
+            Lorem ipsum dolor sit. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Assumenda, minus aspernatur? Cumque.
+          </p>
+          <span><img src="./media/Image (10).png" alt="" height="25" /></span>
+          <span>Dr.Temple</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+   <script>
+     
+     document.addEventListener('DOMContentLoaded', () => {
+        
+        const bookingsLink = document.getElementById('available-bookings');
+        
+        bookingsLink.addEventListener('click', (event) => {
+          event.preventDefault(); // Prevent the default action of the link
+          location.reload(); // Reload the page
+        });
+      });
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const token = getCookie("token");
+        console.log("FRONT END TOKEN" + token); // Use a function to get cookie value
+
+        if (!token) {
+          // If token is not present, redirect to login page
+          window.location.href = "/login.html";
+          return;
+        }
+        console.log("token   =" + token);
+        const response = await fetch("/profile", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          const user = await response.json();
+          console.log("user =",user);
+          displayUser(user);
+          var loginLogoutLink = document.getElementById("login-logout");
+           loginLogoutLink.innerText = "Logout";
+           loginLogoutLink.addEventListener("click", toggleLoginLogout);
+        } else if (response.status === 401) {
+          // If unauthorized, redirect to login page
+          window.location.href = "/login.html";
+        } else {
+          const errorData = await response.json();
+          alert(errorData.error || "Failed to fetch user profile");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Failed to fetch user profile");
+      }
+    });
+
+    function displayUser(user) {
+      const userContainer = document.getElementById("user-container");
+      userContainer.innerHTML = `<i class="fa-solid fa-user"></i> ${user.username}`;
+    }
+    function toggleLoginLogout() {
+    
+      var loginLogoutLink = document.getElementById("login-logout");
+
+  // Check if the link currently says "Logout"
+ 
+  if (loginLogoutLink.innerText === "LOGOUT") {
+      // Clear cookie named "token"
+      document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      
+      // Clear token from local storage (if any)
+      localStorage.removeItem("token");
+     
+      // Redirect to the login page
+       window.location.href = "/login.html";
+  } else {
+      // If user is not logged in, redirect to the login page
+       window.location.href = "/login.html";
+  }
+      // If user is logging out, remove token from local storage
+
+      loginLogoutLink.innerText = "logout";
+      // loginLogoutLink.href = "login.html"; // Change href if needed
+    }
+  </script>
+   <script>
+    let templeCoordinates; // Declare templeCoordinates variable globally
+
+    async function showtempledata() {
+        try {
+            // Retrieve temple ID from local storage
+            const templeId = localStorage.getItem("selectedTempleId");
+
+            if (!templeId) {
+                // Handle case where temple ID is not found
+                console.error("Temple ID not found in local storage");
+                return;
+            }
+
+            // Fetch temple details and bookings data for the selected temple from backend
+            const response = await fetch(`/temples/${templeId}/available-bookings`);
+            const data = await response.json();
+
+            console.log(data);
+            if (response.ok) {
+                templeCoordinates = {
+                    lat: parseFloat(data.temple.location.coordinates[1]),
+                    lng: parseFloat(data.temple.location.coordinates[0])
+                };
+                // Display temple details and bookings
+                showTempleDetails(data.temple);
+                console.log("bookinfs= ",data.bookings);
+                displayBookings(data.bookings);
+                loadGoogleMapsAPI(); // Load Google Maps API after temple coordinates are fetched
+            } else {
+                console.error(data.error);
+            }
+        } catch (error) {
+            // Handle any other errors
+            console.error("Error:", error);
+        }
+    }
+
+    function loadGoogleMapsAPI() {
+        const script = document.createElement("script");
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAhRAzbk-xkSfWvrJ1FfBRkqp9GIb-NMOg&libraries=geometry&callback=initMap`;
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+    }
+
+    function initMap() {
+        displayRoute(templeCoordinates);
+    }
+
+    function displayRoute(destination) {
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 10,
+            center: destination // Use templeCoordinates as the center
+        });
+        const directionsService = new google.maps.DirectionsService();
+        const directionsRenderer = new google.maps.DirectionsRenderer({
+            map: map
+        });
+        getUserLocation()
+            .then(origin => {
+                directionsService.route({
+                    origin: origin,
+                    destination: destination,
+                    travelMode: "DRIVING"
+                }, (response, status) => {
+                    if (status === "OK") {
+                        directionsRenderer.setDirections(response);
+                    } else {
+                        window.alert("Directions request failed due to " + status);
+                    }
+                });
+            })
+            .catch(error => {
+                console.error("Error getting user location:", error);
+            });
+    }
+
+    function getUserLocation() {
+        return new Promise((resolve, reject) => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    resolve(userLocation);
+                }, error => {
+                    reject(error);
+                });
+            } else {
+                reject("Geolocation is not supported by this browser.");
+            }
+        });
+    }
+
+    function showTempleDetails(temple) {
+      console.log("temple = ",temple);
+        const templeNameElement = document.getElementById("templeName");
+        templeNameElement.textContent = ` ${temple.name}`;
+        const address=document.getElementById("address");
+        address.textContent=temple.address;
+        const about=document.getElementById("about");
+        about.textContent=temple.about;
+        const templeLocationElement = document.getElementById("templeLocation");
+        templeLocationElement.textContent = `Location: ${temple.location.coordinates[1]}, ${temple.location.coordinates[0]}`;
+      
+        // Assuming temple images are displayed in a div with id "templeImages"
+        const templeImagesElement = document.getElementById("templeImageslo");
+        const templeId = localStorage.getItem("selectedTempleId");
+        templeImagesElement.innerHTML = "";
+        temple.images.forEach(image => {
+          const imageElement = document.createElement("img");
+            const imageUrl = `/uploads/${templeId}/${temple.images[0]}`;
+            imageElement.src = imageUrl;
+            imageElement.classList.add("temple-image");
+            templeImagesElement.appendChild(imageElement);
+          
+        });
+    }
+    
+    function displayBookings(bookings) {
+    const bookingsListElement = document.getElementById("bookingsList");
+    bookingsListElement.classList.add("templediv");
+    bookingsListElement.innerHTML = "";
+
+    if (bookings.length > 0) {
+        bookings.forEach((booking, index) => {
+            const bookingItem = document.createElement("div");
+            bookingItem.classList.add("booking-item");
+            bookingItem.classList.add("tempesp");
+            bookingItem.innerHTML = `
+                 <p>Event Name: ${booking.event_name}</p>
+                 <p>Event Description</p>
+                <p class="eventDescription"> ${booking.event_description}</p>
+                <p>Booking Date: ${booking.start_date.substring(0, 10)}</p>
+                <p>Booking Time: ${booking.start_time} - ${booking.end_time}</p>
+               
+              
+                <p>Slots: ${booking.slots}</p>
+            `;
+
+            bookingItem.addEventListener("click", () => {
+                // Hide all other booking items
+                const allBookingItems = document.querySelectorAll(".booking-item");
+                allBookingItems.forEach((item, itemIndex) => {
+                    if (itemIndex !== index) {
+                        item.style.display = "none";
+                    }
+                });
+
+                // Add "Book Now" button dynamically if not already added
+                if (booking.slots > 0 && !bookingItem.querySelector("button")) {
+                    const bookNowButton = document.createElement("button");
+                    bookNowButton.textContent = "Book Now";
+                    bookNowButton.addEventListener("click", (event) => {
+                        event.stopPropagation(); // Prevents triggering the parent click event
+                        const templeId = localStorage.getItem("selectedTempleId");
+                        const bookingIndex = bookings.indexOf(booking);
+                        const bookingId = booking._id; 
+                        handleBooking(templeId, bookingId);
+                    });
+                    bookingItem.appendChild(bookNowButton);
+                    bookingItem.style.width = "550px";
+                    bookingItem.style.height = "auto";
+                }
+            });
+
+            bookingsListElement.appendChild(bookingItem);
+
+            const element = bookingItem.querySelector('.eventDescription');
+            let scrollAmount = 1; // Adjust this value to change the scroll speed
+
+            function startScrolling() {
+                if (element) {
+                    element.scrollTop += scrollAmount;
+
+                    // If the scrollTop has reached the end, reset to start
+                    if (element.scrollTop + element.clientHeight >= element.scrollHeight) {
+                        element.scrollTop = 0;
+                    }
+
+                    // Set the scrolling interval (adjust the speed by changing the interval time)
+                    setTimeout(startScrolling, 100); // Adjust the second argument to change speed
+                }
+            }
+
+            startScrolling();
+        });
+    } else {
+        bookingsListElement.textContent = 'No Events available for this temple.';
+    }
+}
+
+
+
+async function handleBooking(templeId, evebookingId) {
+    try {
+        const response = await fetch("/bookings", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${getCookie("token")}`, // Pass the user token from localStorage
+            },
+            body: JSON.stringify({
+                templeId,
+                evebookingId,
+            }),
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Booking successful");
+            // Reload the temple data to update bookings
+            window.location.href = "/profile.html";
+        } else {
+            console.error(data.error);
+            alert("Booking failed: " + data.error);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Booking failed: Internal Server Error");
+    }
+}
+
+
+
+    document.addEventListener("DOMContentLoaded", showtempledata);
+</script>
+

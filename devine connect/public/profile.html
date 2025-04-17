@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+
+      background-color: rgba(181, 221, 186, 0);
+    }
+
+    nav {
+      height: 0 px;
+      background-color: #006769;
+      display: grid;
+      grid-template-columns: auto auto;
+      height: 68px;
+      z-index: 1010;
+
+      padding-inline: 20px;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fffae6f1;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 15px;
+      transition: 0.7s ease;
+      padding-inline: 10px;
+      border-radius: 15px;
+      box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+
+      /* color: white; */
+    }
+    a:hover {
+      text-decoration: none;
+      color: rgb(153, 153, 226);
+      font-size: 1.3;
+    }
+    .nav-menu {
+      width: 100%;
+    }
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+    nav span {
+      padding: 10px;
+    }
+    .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      background-color: black;
+    }
+    .first {
+      display: flex;
+      justify-content: space-around;
+      margin: 40px 0;
+      align-items: center;
+      padding-inline: 90px;
+    }
+    .first h1 {
+      font-size: xxx-large;
+    }
+    .leftSection {
+      width: 600px;
+    }
+    .cards {
+      height: 110px;
+      width: 110px;
+      padding: 10px;
+      border: 2px solid black;
+    }
+    .secand a {
+      height: 130px;
+      border-radius: 5px;
+      padding: 0;
+      text-decoration: none;
+      color: #333333;
+      background-color: #e1f2cd;
+      box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+    }
+    .secand p {
+      text-align: center;
+      padding-top: 9px;
+      margin: 0;
+    }
+    .secand {
+      display: flex;
+      height: 300px;
+      justify-content: space-between;
+      align-items: center;
+      padding-inline: 10%;
+    }
+    .secand div {
+      background-color: #e1f2cd;
+    }
+    footer {
+      background-color: #e1f2cd;
+      height: 400px;
+      padding-inline: 2.5%;
+      padding-top: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer {
+      padding-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footerdiv {
+      width: 310px;
+      height: 300px;
+      box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+      background-color: #fff;
+      border-radius: 15px;
+    }
+    input {
+      border-radius: 3px;
+      border: 1px solid rgba(0, 0, 0, 0.774);
+      box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+      padding: 3px;
+      width: 35%;
+    }
+    button {
+      background-color: #e1f2cd;
+      border-radius: 4px;
+      padding: 3px;
+    }
+    .templediv {
+      display: grid;
+      grid-template-columns: 30% 30% 30% ;
+      
+
+      justify-content: space-between;
+      align-items: center;
+      padding-inline: 10%;
+    }
+    .tempesp {
+      padding: 15px;
+      text-align: center;
+      padding-top: 9px;
+      margin: 0;
+     
+      height: 350px;
+      box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+      border-radius: 10px;
+      background-color: #e1f2cd;
+      margin-bottom: 15px;
+    }
+    .map {
+      width: 100%;
+      height: 400px;
+    }
+    .temple-image {
+       width: 100px; 
+       height: 100px; 
+       margin: 5px; 
+  
+    }
+    
+    #bookingsTableContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px; /* Optional padding for aesthetics */
+}
+
+/* Styling for the table */
+.bookingsTable {
+  width: 80%; /* Adjust the width as needed */
+  border-collapse: collapse;
+  margin: 0 auto; /* This ensures the table is centered within the flex container */
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table header styling */
+.bookingsTable th {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Table cell styling */
+.bookingsTable td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Additional styling for the rows */
+.bookingsTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.bookingsTable tr:hover {
+  background-color: #ddd;
+}
+.eventDescription{
+ max-height: 150px; 
+  overflow:hidden;
+}
+  </style>
+</head>
+<body>
+    <nav>
+        <div class="left">
+          <a href="http://localhost:3000/">
+            <span><i class="fa-solid fa-hands-praying" height="50px"></i> <b>Devine connect</b></span></i></a>
+          
+          
+          <span></span>
+          <span></span>
+        </div>
+        <div class="right">
+          
+          <span><a href="#" id="login-logout" >Login</a></span>
+         
+         
+          <a href="profile.html"><span id="user-container"></span></a>
+        </div>
+      </nav>
+      <h1 style="text-align: center;">Personal details</h1>
+    <div id="profile-info"></div>
+      <script>
+        function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const token = getCookie("token");
+        console.log("FRONT END TOKEN" + token); // Use a function to get cookie value
+
+        if (!token) {
+          // If token is not present, redirect to login page
+          window.location.href = "/login.html";
+          return;
+        }
+        console.log("token   =" + token);
+        const response = await fetch("/profile", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          const user = await response.json();
+          console.log("user =",user);
+          displayUser(user);
+          var loginLogoutLink = document.getElementById("login-logout");
+           loginLogoutLink.innerText = "Logout";
+           loginLogoutLink.addEventListener("click", toggleLoginLogout);
+        } else if (response.status === 401) {
+          // If unauthorized, redirect to login page
+          window.location.href = "/login.html";
+        } else {
+          const errorData = await response.json();
+          alert(errorData.error || "Failed to fetch user profile");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Failed to fetch user profile");
+      }
+    });
+
+    function displayUser(user) {
+      const userContainer = document.getElementById("user-container");
+      userContainer.innerHTML = `<i class="fa-solid fa-user"></i> ${user.username}`;
+    }
+    function toggleLoginLogout() {
+    
+      var loginLogoutLink = document.getElementById("login-logout");
+
+  // Check if the link currently says "Logout"
+ 
+  if (loginLogoutLink.innerText === "LOGOUT") {
+      // Clear cookie named "token"
+      document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      
+      // Clear token from local storage (if any)
+      localStorage.removeItem("token");
+     
+      // Redirect to the login page
+       window.location.href = "/login.html";
+  } else {
+      // If user is not logged in, redirect to the login page
+       window.location.href = "/login.html";
+  }
+      // If user is logging out, remove token from local storage
+
+      loginLogoutLink.innerText = "logout";
+      // loginLogoutLink.href = "login.html"; // Change href if needed
+    }
+      </script>
+    <script src="profile.js"></script>
+</body>
+</html>

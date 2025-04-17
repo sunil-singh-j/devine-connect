@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<style>
+     body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(181, 221, 186, 0);
+  }
+
+  nav {
+    height: 0 px;
+    background-color: #006769;
+    display: grid;
+    grid-template-columns: auto auto;
+    height: 68px;
+    z-index: 1010;
+
+    padding-inline: 20px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fffae6f1;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: 0.7s ease;
+    padding: 5px;
+    padding-inline: 10px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+
+    /* color: white; */
+  }
+  a:hover {
+    text-decoration: none;
+    color: rgb(153, 153, 226);
+    font-size: 1.3;
+  }
+  .nav-menu {
+    width: 100%;
+  }
+  .hamburger {
+    display: none;
+    cursor: pointer;
+  }
+  nav span {
+    padding: 10px;
+  }
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+  }
+    body {
+font-family: Arial, sans-serif;
+
+margin: 0;
+padding: 0;
+}
+
+h1 {
+text-align: center;
+color: #333;
+margin-bottom: 30px;
+}
+.leftSection {
+    width: 45%;
+  }
+form {
+max-width: 100%;
+padding: 30px;
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+display: block;
+margin-bottom: 10px;
+font-weight: bold;
+color: #555;
+}
+select,
+input[type="tel"],
+input[type="email"],
+input[type="text"],
+input[type="password"],
+textarea {
+width: 100%;
+padding: 10px;
+margin-bottom: 20px;
+border: 1px solid #ccc;
+border-radius: 5px;
+box-sizing: border-box;
+font-size: 16px;
+}
+
+input[type="file"] {
+margin-top: 5px;
+}
+
+button[type="submit"],
+button[type="button"] {
+width: 100%;
+padding: 10px;
+background-color: #007bff;
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+background-color: #0056b3;
+}
+
+#autoDetectLocation {
+display: block;
+margin-top: 10px;
+}
+
+textarea {
+height: 100px;
+resize: none;
+}
+.first {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+    
+    padding-inline: 90px;
+  }
+  /* Animation */
+  form.slide-up {
+      transform: translateY(-100%);
+    }
+    #timer {
+      display: none;
+      font-size: 14px;
+      color: red;
+    }
+</style>
+</head>
+<body>
+  <body>
+    <nav>
+      <div class="left">
+        <a href="http://localhost:3000/">
+          <span><i class="fa-solid fa-hands-praying" height="50px"></i> <b>Devine connect</b></span></i></a>
+        
+        
+        <span></span>
+        <span></span>
+      </div>
+      <div class="right">
+        <span><a href="login.html" id="login-logout">Login</a></span>
+
+       
+       
+        <a href="profile.html"><span id="user-container"></span></a>
+      </div>
+    </nav>
+    <section class="first">
+      <div class="leftSection i">
+        <H1 style="text-align: center;">signup </H1>
+    <form id="register-form">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="text" id="age" placeholder="Age" required>
+      <select id="gender" required>
+        <option value="" disabled selected>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="tel" id="phoneNO" placeholder="Phone Number" required>
+      <input type="text" id="otp" placeholder="Enter OTP" style="display:none;" required>
+      <button type="button" id="generate-otp">Generate OTP</button>
+      <span id="timer">You can regenerate OTP in <span id="countdown">60</span> seconds</span>
+      <button type="submit" id="register-button" style="display:none;">Register</button>
+    </form>
+  </div>
+  <div class="rightSection" >
+    
+  <img src="./media/Image.png" alt=""  style="padding: 20%;padding-bottom: 0;"/>
+  <h1><b>Book online pooja services for your spiritual needs</b></h1>
+ 
+</div>
+
+</section>
+
+  <script src="./js/register.js"></script>
+</body>
+</html>

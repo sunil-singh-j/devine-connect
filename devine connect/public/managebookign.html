@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temple Booking Management</title>
+   
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+
+      background-color: rgba(181, 221, 186, 0);
+    }
+
+    nav {
+      height: 0 px;
+      background-color: #006769;
+      display: grid;
+      grid-template-columns: auto auto;
+      height: 68px;
+      z-index: 1010;
+
+      padding-inline: 20px;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fffae6f1;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 15px;
+      transition: 0.7s ease;
+      padding-inline: 10px;
+      border-radius: 15px;
+      box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+
+      /* color: white; */
+    }
+    a:hover {
+      text-decoration: none;
+      color: rgb(153, 153, 226);
+      font-size: 1.3;
+    }
+    .nav-menu {
+      width: 100%;
+    }
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+    nav span {
+      padding: 10px;
+    }
+    .bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      background-color: black;
+    }
+    .first {
+      display: flex;
+      justify-content: space-around;
+      margin: 40px 0;
+      align-items: center;
+      padding-inline: 90px;
+    }
+    .first h1 {
+      font-size: xxx-large;
+    }
+    .leftSection {
+      width: 600px;
+    }
+    .cards {
+      height: 110px;
+      width: 110px;
+      padding: 10px;
+      border: 2px solid black;
+    }
+    .secand a {
+      height: 130px;
+      border-radius: 5px;
+      padding: 0;
+      text-decoration: none;
+      color: #333333;
+      background-color: #e1f2cd;
+      box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+    }
+    .secand p {
+      text-align: center;
+      padding-top: 9px;
+      margin: 0;
+    }
+    .secand {
+      display: flex;
+      height: 300px;
+      justify-content: space-between;
+      align-items: center;
+      padding-inline: 10%;
+    }
+    .secand div {
+      background-color: #e1f2cd;
+    }
+    footer {
+      background-color: #e1f2cd;
+      height: 400px;
+      padding-inline: 2.5%;
+      padding-top: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer {
+      padding-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footerdiv {
+      width: 310px;
+      height: 300px;
+      box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+      background-color: #fff;
+      border-radius: 15px;
+    }
+    input {
+      border-radius: 3px;
+      border: 1px solid rgba(0, 0, 0, 0.774);
+      box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+      padding: 3px;
+      width: 35%;
+    }
+    button {
+      background-color: #e1f2cd;
+      border-radius: 4px;
+      padding: 3px;
+    }
+    .templediv {
+      display: grid;
+      grid-template-columns: 30% 30% 30% ;
+      
+
+      justify-content: space-between;
+      align-items: center;
+      padding-inline: 10%;
+    }
+    .tempesp {
+      padding: 15px;
+      text-align: center;
+      padding-top: 9px;
+      margin: 0;
+     
+      height: 350px;
+      box-shadow: 1px 1px 1px rgba(24, 27, 29, 0.144);
+      border-radius: 10px;
+      background-color: #e1f2cd;
+      margin-bottom: 15px;
+    }
+    .map {
+      width: 100%;
+      height: 400px;
+    }
+    .temple-image {
+       width: 100px; 
+       height: 100px; 
+       margin: 5px; 
+  
+    }
+    
+    #bookingsTableContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px; /* Optional padding for aesthetics */
+}
+
+/* Styling for the table */
+.bookingsTable {
+  width: 80%; /* Adjust the width as needed */
+  border-collapse: collapse;
+  margin: 0 auto; /* This ensures the table is centered within the flex container */
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table header styling */
+.bookingsTable th {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Table cell styling */
+.bookingsTable td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Additional styling for the rows */
+.bookingsTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.bookingsTable tr:hover {
+  background-color: #ddd;
+}
+.eventDescription{
+ max-height: 150px; 
+  overflow:hidden;
+}
+#templeImageslo{
+        width: 300px;
+        border-radius: 50% ;
+        overflow: hidden;
+        
+      }
+      #templeImageslo img{
+        width: 105%;
+        height: 105%;
+      }
+      #first {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+
+  #first div {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  input[type="date"],
+  input[type="time"],
+  input[type="number"],
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+  </style>
+  </head>
+  <body>
+    <nav>
+      <div class="left">
+        <a href="http://localhost:3000/">
+          <span><i class="fa-solid fa-hands-praying" height="50px"></i> <b>Devine connect</b></span></i></a>
+        <span id="user-container"></span>
+      </div>
+      <div class="right">
+        <span><a href="#"id="available-bookings">bookings</a></span>
+        <span><a id="CreateEvent">Create Event</a></span>
+        <span><a href="login.html" id="login-logout">Logout</a></span>
+        <span id="user-container"></span>
+      </div>
+    </nav>
+    <section class="first">
+      <div class="leftSection i">
+        <h1 id="templeName"></h1>
+        <p id="address">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, nemo. Lorem ipsum dolor sit amet.</p>
+        <p id="about"></p>
+        <p id="templeLocation" style="display: none;"></p>
+      </div>
+      <div class="rightSection">
+        <div id="templeImageslo"></div>
+       
+        <!-- <img src="pg.png.png" alt=""> -->
+      </div>
+    </section>
+    <h1 style="text-align: center;">Temple Booking Management</h1>
+    <div id="bookingsList"></div>
+    <div id="bookings"></div>
+    <div class="centre" id="bookingsTableContainer"></div>
+    
+    <section id="first">
+      <div>
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" />
+      </div>
+      <div>
+        <label for="start_time">Start Time:</label>
+        <input type="time" id="start_time" name="start_time" />
+      </div>
+      <div>
+        <label for="end_time">End Time:</label>
+        <input type="time" id="end_time" name="end_time" />
+      </div>
+      <div>
+        <label for="slots">Number of Slots:</label>
+        <input type="number" id="slots" name="slots" />
+      </div>
+      <div>
+        <label for="event_name">Event Name:</label>
+        <input type="text" id="event_name" name="event_name" />
+      </div>
+      <div>
+        <label for="event_description">Event Description:</label>
+        <textarea id="event_description" name="event_description"></textarea>
+      </div>
+     
+      <div>
+        <button id="createbooking">Create Bookings</button>
+      </div>
+    </section>
+   
+    <script>
+        document.getElementById('login-logout').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default anchor behavior
+    logoutUser(); // Call the logout function
+  });
+
+  function logoutUser() {
+    // Clear local storage
+    localStorage.clear();
+
+    // Clear cookies
+    document.cookie.split(";").forEach(function(c) {
+      document.cookie = c.trim().split("=")[0] + '=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
+    });
+
+    // Redirect to login page (assuming the login page is login.html)
+    window.location.href = 'login.html';
+  }
+
+
+      document.addEventListener('DOMContentLoaded', () => {
+        
+  const bookingsLink = document.getElementById('available-bookings');
+  
+  bookingsLink.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent the default action of the link
+    location.reload(); // Reload the page
+  });
+});
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const createEventLink = document.getElementById("CreateEvent");
+        const firstSection = document.getElementById("first");
+        firstSection.style.display = "none";
+        
+        createEventLink.addEventListener("click", function (event) {
+          event.preventDefault();
+          document.getElementById("bookingsList").style.display="none";
+          document.getElementById("bookingsTableContainer").style.display="none";
+          firstSection.style.display = "block";
+        });
+        createbooking.addEventListener("click", function (event) {
+          event.preventDefault();
+          updateBookings();
+        });
+        function getCookie(name) {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) return parts.pop().split(";").shift();
+        }
+
+        function updateBookings() {
+    const startDate = document.getElementById("start_date").value;
+    const startTime = document.getElementById("start_time").value;
+    const endTime = document.getElementById("end_time").value;
+    const eventName = document.getElementById("event_name").value;
+    const eventDescription = document.getElementById("event_description").value;
+    // const status = document.querySelector('input[name="booking_status"]:checked').value;
+    const slots = document.getElementById("slots").value;
+
+    // Get the current date and time
+    const now = new Date();
+    const currentDate = now.toISOString().split('T')[0];
+    const currentTime = now.toTimeString().split(' ')[0];
+
+    // Validate date and time
+    if (startDate < currentDate || (startDate === currentDate && startTime < currentTime)) {
+      alert("Start date and time cannot be in the past.");
+      return;
+    }
+     // Validate end time is at least 30 minutes after start time
+     const startDateTime = new Date(`${startDate}T${startTime}`);
+    const endDateTime = new Date(`${startDate}T${endTime}`);
+    const differenceInMinutes = (endDateTime - startDateTime) / (1000 * 60);
+
+    if (differenceInMinutes < 30) {
+      alert("End time must be at least 30 minutes after start time.");
+      return;
+    }
+
+
+
+    // Validate slots
+    if (slots <= 1) {
+      alert("The number of slots must be greater than 1.");
+      return;
+    }
+
+    const requestData = {
+      start_date: startDate,
+      end_date: startDate, // Assuming end_date is the same as start_date since it's not in the form
+      start_time: startTime,
+      end_time: endTime,
+      event_name: eventName,
+      event_description: eventDescription,
+      enabled: true,
+      slots: slots,
+    };
+
+    console.log(requestData);
+
+          const token = getCookie("templetoken");
+          if (!token) {
+            console.log("Token is missing");
+            window.location.href = "/login.html";
+            return;
+          }
+
+          fetch("/temples/bookings/update", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(requestData),
+          })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Failed to update bookings");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            firstSection.style.display = "none";
+            alert(data.message);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("Failed to update bookings");
+          });
+        }
+
+        function fetchBookings() {
+  const token = getCookie("templetoken");
+  if (!token) {
+    console.log("Token is missing");
+    window.location.href = "/Templelogin.html";
+    return;
+  }
+
+  fetch("/templeinfo", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Failed to fetch bookings");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    const bookingsList = document.getElementById("bookingsList");
+    bookingsList.innerHTML = "";
+    console.log("data = ", data);
+    const templeNameElement = document.getElementById("templeName");
+        templeNameElement.textContent = ` ${data.templeinfo.name}`;
+        const address=document.getElementById("address");
+         address.textContent=data.templeinfo.address;
+        const about=document.getElementById("about");
+        about.textContent=data.templeinfo.about;
+        const templeImagesElement = document.getElementById("templeImageslo");
+        const templeId = localStorage.getItem("selectedTempleId");
+        templeImagesElement.innerHTML = "";
+        data.templeinfo.images.forEach(image => {
+          const imageElement = document.createElement("img");
+            const imageUrl = `/uploads/${data.templeinfo.t_id}/${data.templeinfo.images[0]}`;
+            imageElement.src = imageUrl;
+            imageElement.classList.add("temple-image");
+            templeImagesElement.appendChild(imageElement);
+          
+        });
+
+
+
+    if (data.templeinfo && data.templeinfo.bookings && data.templeinfo.bookings.length > 0) {
+      data.templeinfo.booking_management.forEach((booking) => {
+        const bookingDiv = document.createElement("div");
+        bookingDiv.classList.add("tempesp", "bookingDiv");
+        bookingDiv.innerHTML = `
+          <p>Booking Date: ${booking.start_date.substring(0, 10)}</p>
+          <p>Booking Time: ${booking.start_time} - ${booking.end_time}</p>
+          <p>Event Name: ${booking.event_name}</p>
+          <p>Event Description</p>
+          <p class="eventDescription"> ${booking.event_description}</p>
+          <p>Slots: ${booking.slots}</p>
+        `;
+
+        bookingsList.appendChild(bookingDiv);
+        bookingsList.classList.add("templediv");
+        const element = document.querySelector('.eventDescription');
+
+  let scrollAmount = 1; // Adjust this value to change the scroll speed
+
+  function startScrolling() {
+    element.scrollTop += scrollAmount;
+
+    // If the scrollTop has reached the end, reset to start
+    if (element.scrollTop + element.clientHeight >= element.scrollHeight) {
+      element.scrollTop = 0;
+    }
+
+  
+    setTimeout(startScrolling, 100); // Adjust the second argument to change speed
+  }
+
+  startScrolling();
+
+        bookingDiv.addEventListener('click', function () {
+          const bookingId = booking._id;
+          console.log("booking id ", bookingId);
+
+          // Hide all other bookingDiv elements
+          const allBookingDivs = document.querySelectorAll('.bookingDiv');
+          allBookingDivs.forEach(div => {
+            if (div !== bookingDiv) {
+              div.style.display = 'none';
+              bookingDiv.style.width="550px"
+              bookingDiv.style.height="auto"
+            }
+          });
+
+          const matchingBookings = data.templeinfo.bookings.filter(b => b.event_id === bookingId);
+          console.log("matching ", matchingBookings);
+
+          displayBookingsTable(matchingBookings);
+        });
+      });
+    } else {
+      const noBookingsMessage = document.createElement("p");
+      noBookingsMessage.textContent = "No events available.";
+      bookingsList.appendChild(noBookingsMessage);
+    }
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+    alert("Failed to fetch bookings");
+  });
+}
+
+function displayBookingsTable(bookings) {
+  const tableContainer = document.getElementById("bookingsTableContainer");
+  tableContainer.innerHTML = "";
+
+  if (bookings.length === 0) {
+    tableContainer.textContent = "No bookings found for this event.";
+    return;
+  }
+
+  const table = document.createElement('table');
+  table.classList.add('bookingsTable');
+
+  const headers = ['Si. No', 'Booking ID', 'User ID'];
+  const headerRow = table.insertRow();
+  headers.forEach(headerText => {
+    const headerCell = document.createElement('th');
+    headerCell.textContent = headerText;
+    headerRow.appendChild(headerCell);
+  });
+
+  bookings.forEach((booking, index) => {
+    const row = table.insertRow();
+    row.insertCell().textContent = index + 1;
+    row.insertCell().textContent = booking.booking_id;
+    row.insertCell().textContent = booking.user_id;
+  });
+
+  const totalRow = table.insertRow();
+  const totalCell = totalRow.insertCell();
+  totalCell.colSpan = 3;
+  totalCell.textContent = `Total Bookings: ${bookings.length}`;
+
+  tableContainer.appendChild(table);
+}
+
+
+        // Fetch bookings when the page loads
+        fetchBookings();
+      });
+    </script>
+  </body>
+</html>
